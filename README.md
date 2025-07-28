@@ -45,3 +45,34 @@ Para recriar todo o ambiente automaticamente, basta executar o seguinte script:
 
 ```bash
 python installer.py
+
+
+
+## 📁 Funcionalidades
+
+ - 🔍 Busca semântica em arquivos PDF e DOCX
+
+ - 🎥 Processamento de vídeos do YouTube (via transcrição de áudio)
+
+ - 🌐 Consulta e scraping de sites com BeautifulSoup
+
+ - 🧠 Uso de embeddings com FAISS para recuperação de contexto
+
+ - 🤖 Integração com OpenAI GPT e HuggingFace Transformers
+
+
+## 🧪 Requisitos
+
+ Antes de rodar o projeto, certifique-se de ter:
+
+ - Python 3.10+
+
+ - Ambiente virtual configurado (recomendado)
+
+ - As bibliotecas listadas acima instaladas (ou utilize o installer.py)
+
+ - As variáveis de ambiente definidas corretamente no arquivo .env
+
+## ✅ Execução
+
+Após configurar o ambiente, você pode rodar os notebooks ou scripts Python diretamente para começar a interagir com os dados e fontes.
