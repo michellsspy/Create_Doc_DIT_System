@@ -45,8 +45,7 @@ Para recriar todo o ambiente automaticamente, basta executar o seguinte script:
 
 ```bash
 python installer.py
-
-
+```
 
 ## 📁 Funcionalidades
 
