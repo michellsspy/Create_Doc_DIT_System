@@ -2,7 +2,7 @@
           SISTEMA: Create Doc DIT System
 ===========================================
 
-Data da Instalação: 2025-08-05 19:42:41
+Data da Instalação: 2025-08-05 20:05:12
 
 Descrição:
 Este arquivo contém informações gerais sobre a instalação do sistema Create Doc DIT.
@@ -35,7 +35,7 @@ Informações do Ambiente:
 - Processador: Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 - Número de CPUs: 8
 - Memória RAM Total: 15.79 GB
-- Espaço Disco Disponível (na pasta atual): 156.74 GB
+- Espaço Disco Disponível (na pasta atual): 152.76 GB
 - Python Version: 3.13.5
 - Python Implementação: CPython
 - Caminho do Python: C:\Users\MichelSouzaSantana\OneDrive - Dataside\Documentos\Create_Doc_DIT_System\venv\Scripts\python.exe

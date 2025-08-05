@@ -9,6 +9,47 @@ import platform
 import psutil  # pip install psutil (para infos de hardware)
 import shutil
 
+# Configuração do logger
+# O logger é configurado para registrar mensagens de log no console e em um arquivo de log  
+def configurar_logger(base_dir: Path) -> logging.Logger:
+    """
+    Configura o logger para gravar logs no console e em um arquivo na pasta 'log/'.
+    O nome do arquivo segue o padrão: log_installer_YYYY_MM_DD_HH_MM_SS.log
+    """
+    log_dir = base_dir / "log"
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+    log_filename = f"log_installer_{datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log"
+    log_path = log_dir / log_filename
+
+    # Cria um logger novo com nome do módulo principal
+    logger = logging.getLogger("installer_logger")
+    logger.setLevel(logging.DEBUG)
+
+    # Remove handlers anteriores (para evitar duplicidade em múltiplas execuções)
+    if logger.hasHandlers():
+        logger.handlers.clear()
+
+    # Formato do log
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+    # Handler para arquivo
+    file_handler = logging.FileHandler(log_path, encoding='utf-8')
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(formatter)
+
+    # Handler para console
+    stream_handler = logging.StreamHandler(sys.stdout)
+    stream_handler.setLevel(logging.INFO)
+    stream_handler.setFormatter(formatter)
+
+    # Adiciona handlers ao logger
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+
+    logger.info(f"[✓] Arquivo de log criado: {log_path}")
+    return logger
+
 
 # Configuração do arquivo de instalação
 # Define o caminho do arquivo de instalação como "install.txt" no diretório atual   
@@ -432,11 +473,25 @@ def garantir_venv():
 # Ela garante que o ambiente virtual está ativo, instala os pacotes necessários, cria o arquivo de ambiente (.env) e cria as pastas padrão.
 # Ao final, imprime uma mensagem de sucesso e orienta o usuário a executar o script principal   
 def main():
+    # Define o diretório base do script
+    base_dir = Path(__file__).resolve().parent
+    
+    # Configura o logger
+    logger = configurar_logger(base_dir)
+    
+    logger.info("[⚙️] Iniciando configuração do ambiente...")
+    print("[⚙️] Configurando o ambiente...")
+
+    # Executa as etapas de configuração
     garantir_venv()
     installer_packages()
-    cria_env(Path(__file__).resolve().parent)
-    criar_pastas(Path(__file__).resolve().parent)
-    print("[✓] Ambiente configurado com sucesso. Execute 'python main.py' para iniciar.")
+    cria_env(base_dir)
+    criar_pastas(base_dir)
+
+    msg_final = "[✓] Ambiente configurado com sucesso. Execute 'python main.py' para iniciar."
+    print(msg_final)
+    logger.info(msg_final)
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Verifica se o script está sendo executado diretamente 
