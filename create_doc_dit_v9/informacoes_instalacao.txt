@@ -1,0 +1,53 @@
+===========================================
+          SISTEMA: Create Doc DIT System
+===========================================
+
+Data da Instalação: 2025-08-05 19:42:41
+
+Descrição:
+Este arquivo contém informações gerais sobre a instalação do sistema Create Doc DIT.
+
+Arquitetura pós instalação:
+    Create_Doc_DIT_System/
+    │
+    ├── .venv/                      # Ambiente virtual
+    ├── doc/                        # Documentos carregados
+    ├── .env                        # Variáveis de ambiente
+    ├── functions/                  # Funções do sistema   
+    │   ├── __init__.py             # Inicialização do módulo
+    │   ├── log.py                  # Configuração do logger 
+    │   ├── estrutura.py            # Criação de pastas
+    │   ├── conversao.py            # Conversão de arquivos
+    │   ├── upsert_key_gpt.py       # Inserção de chave da API OpenAI
+    │   ├── create_key_gpt.py       # Criação/atualização da chave da API OpenAI
+    │   ├── esta_em_venv.py         # Verificação do ambiente virtual
+    |   ├── garantir_venv.py        # Garantia do ambiente virtual        
+    ├── log/                        # Logs do sistema
+    ├── markdown/                   # Arquivos convertidos para Markdown
+    ├── notebooks/                  # Notebooks Jupyter
+    ├── docdit_app.exe                  # Executável do sistema (se aplicável)
+
+Informações do Ambiente:
+
+- Sistema Operacional: Windows 11 (10.0.26100)
+- Nome do Host: DSNB322
+- Arquitetura: AMD64
+- Processador: Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+- Número de CPUs: 8
+- Memória RAM Total: 15.79 GB
+- Espaço Disco Disponível (na pasta atual): 156.74 GB
+- Python Version: 3.13.5
+- Python Implementação: CPython
+- Caminho do Python: C:\Users\MichelSouzaSantana\OneDrive - Dataside\Documentos\Create_Doc_DIT_System\venv\Scripts\python.exe
+
+Variáveis de Ambiente Importantes:
+  - PATH: C:\Users\MichelSouzaSantana\OneDrive - Dataside\Documentos\Create_Doc_DIT_System\venv\Scripts;C:\Users\MichelSouzaSantana\AppData\Local\cloud-code\installer\google-cloud-sdk\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\MichelSouzaSantana\AppData\Local\Microsoft\WindowsApps;C:\Users\MichelSouzaSantana\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\MichelSouzaSantana\AppData\Local\Programs\Git\cmd;c:\Users\MichelSouzaSantana\.vscode\extensions\ms-python.debugpy-2025.10.0-win32-x64\bundled\scripts\noConfigScripts;c:\Users\MichelSouzaSantana\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand
+  - HOME: Não definido
+  - USER: Não definido
+  - USERNAME: MichelSouzaSantana
+  - VIRTUAL_ENV: C:\Users\MichelSouzaSantana\OneDrive - Dataside\Documentos\Create_Doc_DIT_System\venv
+  - PYTHONPATH: Não definido
+  - PYTHONHOME: Não definido
+  - OPENAI_API_KEY: Não definido
+
+-------------------------------------------

@@ -67,19 +67,20 @@ def limpar():
     return "", "", None, ""
 
 with gr.Blocks(title="Conversor de Notebooks para DIT") as interface:
-    gr.Markdown("## Conversor de Notebooks Jupyter para Documento Técnico (DIT)")
-    gr.Markdown("Esta ferramenta converte notebooks Jupyter (.ipynb) em um Documento de Implementação Técnica formatado (.docx)")
     
     # Botão para criar token (canto superior direito)
-    with gr.Row():
-        gr.HTML("""<div style="width: 100%; text-align: left; margin-bottom: 10px; margin-top: 10px;">
-            <a href='https://platform.openai.com/settings/organization/admin-keys' target='_blank'>
-                <button class='gr-button gr-button-lg gr-button-primary'
-                    style='background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;'>
-                    Criar Token GPT
-                </button>
-            </a>
-        </div>""")
+    gr.HTML("""
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 style="margin: 0;">Conversor de Notebooks Jupyter para Documento Técnico (DIT)</h2>
+        <a href='https://platform.openai.com/settings/organization/admin-keys' target='_blank'>
+            <button class='gr-button gr-button-lg gr-button-primary'
+                style='background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;'>
+                Criar Token OpenAI
+            </button>
+        </a>
+    </div>
+    <p>Esta ferramenta converte notebooks Jupyter (.ipynb) em um Documento de Implementação Técnica formatado (.docx)</p>
+    """)
     
     with gr.Row():
         with gr.Column():
@@ -97,13 +98,6 @@ with gr.Blocks(title="Conversor de Notebooks para DIT") as interface:
                 diretorio_btn_source = gr.Button("📁 Procurar")
             
             with gr.Row():
-                diretorio_output = gr.Textbox(
-                    label="Diretório Onde Será Salvo a DIT",
-                    placeholder="Caminho para onde será salvo a DIT.docx"
-                )
-                diretorio_btn_target = gr.Button("📁 Procurar")
-            
-            with gr.Row():
                 limpar_btn = gr.Button("🔄 Limpar")
                 processar_btn = gr.Button("⚙️ Processar", variant="primary")
         
@@ -117,15 +111,9 @@ with gr.Blocks(title="Conversor de Notebooks para DIT") as interface:
         inputs=[token_input, diretorio_input],
         outputs=[status_output, arquivo_output]
     )
-    diretorio_btn_target.click(selecionar_diretorio, outputs=diretorio_output)
-    processar_btn.click(
-        processar_notebooks,
-        inputs=[token_input, diretorio_output],
-        outputs=[status_output, arquivo_output]
-    )
     limpar_btn.click(
         limpar,
-        outputs=[token_input, diretorio_input, diretorio_output, arquivo_output, status_output]
+        outputs=[token_input, diretorio_input, arquivo_output, status_output]
     )
 
 if __name__ == "__main__":

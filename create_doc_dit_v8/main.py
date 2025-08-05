@@ -98,13 +98,6 @@ with gr.Blocks(title="Conversor de Notebooks para DIT") as interface:
                 diretorio_btn_source = gr.Button("📁 Procurar")
             
             with gr.Row():
-                diretorio_output = gr.Textbox(
-                    label="Diretório da DIT",
-                    placeholder="Caminho para onde será salvo a DIT.docx"
-                )
-                diretorio_btn_target = gr.Button("📁 Procurar")
-            
-            with gr.Row():
                 limpar_btn = gr.Button("🔄 Limpar")
                 processar_btn = gr.Button("⚙️ Processar", variant="primary")
         
@@ -118,15 +111,9 @@ with gr.Blocks(title="Conversor de Notebooks para DIT") as interface:
         inputs=[token_input, diretorio_input],
         outputs=[status_output, arquivo_output]
     )
-    diretorio_btn_target.click(selecionar_diretorio, outputs=diretorio_output)
-    processar_btn.click(
-        processar_notebooks,
-        inputs=[token_input, diretorio_output],
-        outputs=[status_output, arquivo_output]
-    )
     limpar_btn.click(
         limpar,
-        outputs=[token_input, diretorio_input, diretorio_output, arquivo_output, status_output]
+        outputs=[token_input, diretorio_input, arquivo_output, status_output]
     )
 
 if __name__ == "__main__":
